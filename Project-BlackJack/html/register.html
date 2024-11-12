@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <script src="../js/main.js"></script>
+</head>
+
+<body>
+
+    <!--headings-->
+
+    <h1>Register Yourself Now</h1>
+    <h2>Enter Your Details</h2>
+
+    <!--data entry boxes-->
+
+
+    <form id="registrationForm">
+
+        <label for="email">Enter your Email:</label>
+        <input type="text" id="email" placeholder="Your Email.." name="email" title="Must end with domain '@web.bj'"
+            required>
+
+        <label for="username">Create your User-ID:</label>
+        <input type="text" id="username" placeholder="Your UserID.." name="username" required><br>
+
+        <label for="password">Enter your Password:</label>
+        <input type="password" id="password" placeholder="Your Password.." name="password"
+            title="Must contain at least one number and one uppercase and lowercase letter, and at least 6 or more characters"
+            required><br>
+
+        <label for="repassword">Re-Enter your Password:</label>
+        <input type="password" id="repassword" placeholder="Your Password.." name="password" required><br>
+
+        <label for="color">Your favourite Color?</label>
+        <input type="text" id="color" placeholder="Your favourite Color.." name="color" required><br>
+
+        <br>
+        <button1 type="button1" onclick="register()">Register</button1>
+    </form>
+
+    <!--navigation buttons at the bottom-->
+
+    <div class="footer">
+        <div class="btn-group">
+            <a href="home.html"><button class="button">HOME</button></a>
+            <a href="play.html"><button class="button">PLAY</button></a>
+            <a href="login.html"><button class="button">LOGIN</button></a>
+            <a href="register.html"><button class="button">REGISTER</button></a>
+            <a href="help.html"><button class="button">HELP</button></a>
+            <a href="leaderboards.html"><button class="button">LEADERBOARDS</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

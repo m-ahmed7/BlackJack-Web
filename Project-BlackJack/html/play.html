@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Play</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <script type="text/javascript" src="../js/main.js"></script>
+</head>
+
+<body>
+
+    <!--headings-->
+
+    <div class="header">
+        <b>
+            <h1>Black-Jack</h1>
+        </b>
+    </div>
+
+    <!--added a gif
+    <div class="gif">
+        <p2><img src="../images/shuffle.gif"></p2>
+    </div>-->
+
+    <!--game runs here-->
+    <div class="game">
+        <div class="game-options">
+            <input type="button" id="btnStart" class="btn" value="DEAL" onclick="begin()">
+            <input type="button" class="btn" value="HIT" onclick="hitMe()">
+            <input type="button" class="btn" value="STAY" onclick="stay()">
+        </div>
+        <div class="status" id="status"></div>
+        <div id="deck" class="deck">
+            <div id="deckcount">52</div>
+        </div>
+        <br><br><br>
+        <div id="players" class="players"></div>
+    </div>
+
+    <div class="total" id="total">
+        <h3 style="color: black;">Hand Number</h3>
+        <div id="hn">0</div>
+        <h3 style="color: black;">Hands Won</h3>
+        <div id="hw">0</div>
+        <h3 style="color: black;">Hands Busted</h3>
+        <div id="b1">0</div>
+        <h3 style="color: black;">Hands Drawn</h3>
+        <div id="hd">0</div>
+        <h3 style="color: black;">Your Score</h3>
+        <div id="scorecount">0</div>
+    </div>
+
+    <!--navigation buttons at the bottom-->
+
+    <div class="footer">
+        <div class="btn-group">
+            <a href="home.html"><button class="button">HOME</button></a>
+            <a href="play.html"><button class="button">PLAY</button></a>
+            <a href="login.html"><button class="button">LOGIN</button></a>
+            <a href="register.html"><button class="button">REGISTER</button></a>
+            <a href="help.html"><button class="button">HELP</button></a>
+            <button class="button" onclick="addData()">UPDATE</button>
+            <a href="leaderboards.html"><button class="button">LEADERBOARDS</button></a>
+        </div>
+    </div>
+</body>
+
+</html>
