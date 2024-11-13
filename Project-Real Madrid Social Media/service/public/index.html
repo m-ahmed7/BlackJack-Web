@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <script src="functions.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMA</title>
+</head>
+
+<body>
+
+    <!-- Modal for Register -->
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <form id="registerForm">
+                <h2>Register Yourself</h2><br>
+                <label for="register-email">Enter your Email:</label><br>
+                <input type="text" id="register-email" placeholder="Your Email.." name="email" required><br>
+                <label for="register-username">Create your User-ID:</label><br>
+                <input type="text" id="register-username" placeholder="Your UserID.." name="username" required><br>
+                <label for="register-password">Enter your Password:</label><br>
+                <input type="password" id="register-password" placeholder="Your Password.." name="password"
+                    required><br>
+                <label for="register-repassword">Re-Enter your Password:</label><br>
+                <input type="password" id="register-repassword" placeholder="Your Password.." name="password"
+                    required><br>
+                <label for="register-age">Enter your Age:</label><br>
+                <input type="text" id="register-age" placeholder="Your Age.." name="age" required><br><br><br>
+                <button type="button" onclick="register()">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <form id="loginForm">
+                <h2>Login to your Account</h2><br>
+                <label for="login-username">Enter your User-ID:</label><br>
+                <input type="text" id="login-username" placeholder="Your UserID.." name="username" required><br>
+                <label for="login-password">Enter your Password:</label><br>
+                <input type="password" id="login-password" placeholder="Your Password.." name="password"
+                    required><br><br><br>
+                <button type="button" onclick="login()">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Squad Hub -->
+    <div id="squadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('squadModal')">&times;</span>
+            <h2>Squad Overview</h2><br>
+            <div>
+                <h3>Goalkeepers</h3>
+                <div id="gk"></div>
+            </div>
+            <br>
+            <div>
+                <h3>Defenders</h3>
+                <div id="def"></div>
+            </div>
+            <br>
+            <div>
+                <h3>Midfielders</h3>
+                <div id="mid"></div>
+            </div>
+            <br>
+            <div>
+                <h3>Forwards</h3>
+                <div id="fwd"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal, has info about the webpage -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('aboutModal')">&times;</span>
+            <h2>About</h2><br>
+            <p> This is a platform to unite all our passionate fans.
+                You are allowed to share anything related to club,
+                players, fixtures, history, etc.</p>
+        </div>
+    </div>
+
+    <!-- Modal to display posts by loggedin user -->
+    <div id="userPostsModal" class="modal">
+        <div class="modal-content user-posts-modal-content">
+            <span class="close user-posts-close" onclick="closeModal('userPostsModal')">&times;</span>
+            <h2 class="user-posts-modal-title">Your Posts</h2>
+            <div id="userPostsContent" class="user-posts-modal-body"></div>
+        </div>
+    </div>
+
+    <!-- Modal for Search (People/Posts) -->
+    <div id="searchPeopleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('searchPeopleModal')">&times;</span>
+            <h2>Search People or Posts</h2> <!-- Corrected the heading tag -->
+
+            <form id="searchPeopleForm">
+                <label for="searchPeopleInput">Enter keyword:</label><br>
+                <input type="text" id="searchPeopleInput" placeholder="Search People...">
+                <button type="button" onclick="searchPeople()">Search</button>
+            </form>
+            <div id="searchResults"></div> <!-- Search results will be displayed here -->
+        </div>
+    </div>
+
+    <!-- Page Layout -->
+
+    <div class="header">
+        <h1>Real Madrid Fan Page</h1>
+    </div>
+    <div class="container">
+
+        <!-- Menu -->
+        <div class="sidebar">
+            <div class="menu-content">
+                <button class="btn" onclick="openModal('loginModal')">Login</button>
+                <button class="btn" onclick="openModal('registerModal')">Register</button>
+                <button class="btn" onclick="openModal('squadModal')">Squad Hub</button>
+                <button class="btn" onclick="openModal('searchPeopleModal')">Search</button>
+                <button class="btn" onclick="openModal('aboutModal')">About</button>
+            </div>
+        </div>
+
+        <!-- Feed -->
+        <div class="content" id="feed-content">
+            <h1>Feed</h1>
+            <p>Welcome to the home of Real Madrid fan page.</p>
+            <p>Please keep your posts simple and not offensive to anyone.</p>
+            <p>All posts to be seen here.</p>
+        </div>
+
+        <div class="sidebar">
+            <!-- User Info box -->
+            <div class="box">
+                <h2>Profile:</h2>
+                <div class="user-info">
+                    <div class="info-item">
+                        <span class="info-label">Username: <br>@</span>
+                        <span class="info-value username" id="username-display">Dummy</span>
+                    </div>
+                    <br>
+                    <div class="info-item">
+                        <span class="info-label">Posts:</span>
+                        <span class="info-value posts" id="posts-display">X</span><br><br>
+                        <button type="button" onclick="openModal('userPostsModal')">See Your Posts</button>
+                    </div>
+                    <br>
+                    <div class="info-item">
+                        <span class="info-label">Following:</span>
+                        <span class="info-value following" id="following-display">X</span><br>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- Add post box -->
+            <div class="box">
+                <h3>Add your Post:</h3>
+                <div class="blog">
+                    <form id="post">
+                        <label for="blog-content">Write your Blog:</label><br>
+                        <textarea id="blog-content" placeholder="Write your blog here..."></textarea><br>
+                        <label for="photo-url">Image URL:</label><br>
+                        <input type="text" id="photo-url" placeholder="Enter image URL"><br><br>
+                        <button type="button" onclick="uploadPost()">Upload Post</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
